@@ -16,7 +16,7 @@ const CreatePost = () => {
 
   const handleSubmit = () => {};
   const handleChange = (e) => {};
-  const handleSupriseMe = () => {};
+  const handleSurpriseMe = () => {};
   return (
     <section className="max-w-7xl mx-auto">
       <div>
@@ -33,19 +33,19 @@ const CreatePost = () => {
             lableName="Your name"
             type="text"
             name="name"
-            palceHolder="John Doe"
+            placeHolder="John Doe"
             value={form.name}
-            handleChnge={handleChange}
+            handleChange={handleChange}
           />
           <FormField
             lableName="Prompt"
             type="text"
             name="prompt"
-            palceHolder="an armchair in the shape of an avocado"
+            placeHolder="an armchair in the shape of an avocado"
             value={form.prompt}
-            handleChnge={handleChange}
+            handleChange={handleChange}
             isSurpriseMe
-            handleSupriseMe={handleSupriseMe}
+            handleSurpriseMe={handleSurpriseMe}
           />
         </div>
       </form>
