@@ -1,5 +1,5 @@
 //Load all of the components
-import Card from 'Card.jsx';
+import Card from './Card';
 import FormField from './FormField';
 import Loader from './Loader';
 
