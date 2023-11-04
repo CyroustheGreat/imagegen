@@ -6,6 +6,8 @@ import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 
+import connectDB from "./mongodb/connect.js";
+
 // let's setup our dotenv with the following
 dotenv.config(); // allows us to pull our variables from our.env file which we'll create soon
 
@@ -20,9 +22,18 @@ app.get('/', async (req, res) => { res.send('Hello from Dall-E!'); });
 
 // create a way to run
 const startServer = async () => {
-    app.listen(8080, () => {
-        console.log("Server running on port 8080");
-    });
+    // connect to the database in mongoDB
+    try {
+        connectDB(process.env.MONGODB_URL);
+        app.listen(8080, () => {
+            console.log("Server running on port 8080");
+        });
+    } catch (err) {
+        console.log(err);
+    }
+
 }
 
 startServer();
+
+// the next stage is connection to mongodb and openAPI
