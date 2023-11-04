@@ -7,6 +7,8 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./mongodb/connect.js";
+import postRoutes from "./routes/postRoutes.js"
+import dalleRoutes from "./routes/dalleRoutes.js"
 
 // let's setup our dotenv with the following
 dotenv.config(); // allows us to pull our variables from our.env file which we'll create soon
@@ -14,6 +16,11 @@ dotenv.config(); // allows us to pull our variables from our.env file which we'l
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
+
+
+//we've created API endpoints that wee can connect that we can hook onto from end side
+app.use('/api/v1/post', postRoutes);
+app.use('/api/v1/dalle', dalleRoutes);
 
 //create our first route
 app.get('/', async (req, res) => { res.send('Hello from Dall-E!'); });
